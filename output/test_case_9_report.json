@@ -1,0 +1,25 @@
+{
+    "agent_report": {
+        "A1": {
+            "packages_delivered": 6,
+            "total_distance": 200.92000000000002,
+            "efficiency": 33.4867
+        },
+        "A2": {
+            "packages_delivered": 0,
+            "total_distance": 0,
+            "efficiency": 0
+        },
+        "A3": {
+            "packages_delivered": 2,
+            "total_distance": 30.97,
+            "efficiency": 15.485
+        },
+        "A4": {
+            "packages_delivered": 0,
+            "total_distance": 0,
+            "efficiency": 0
+        }
+    },
+    "best_agent": "A1"
+}

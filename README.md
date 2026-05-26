@@ -7,7 +7,7 @@ This project simulates package delivery operations for FastBox logistics company
 The system:
 - Reads multiple JSON test case files
 - Assigns packages to nearest delivery agents
-- Calculates travel distances using Euclidean distance
+- Calculates travel distances
 - Generates delivery reports
 - Exports reports in JSON and CSV format
 
@@ -19,7 +19,7 @@ The system:
 - Nearest agent assignment
 - Delivery simulation
 - JSON report generation
-- CSV export support
+- CSV export
 - Flexible JSON structure handling
 
 ---
@@ -28,7 +28,6 @@ The system:
 
 - Agents start from their initial coordinates
 - Nearest available agent is selected
-- Return trip is not included
 - Efficiency = distance / packages
 - Supports both:
   - warehouse
@@ -39,24 +38,26 @@ The system:
 ## Project Structure
 
 Python Assignment -2026/
-│
-├── data/
-├── output/
-├── src/
-│   └── main.py
-├── README.md
-├── requirements.txt
-└── .gitignore
+
+data/
+    TEST_CASES
+output/
+    REPORT
+src/
+    main.py
+README.md
+requirements.txt
+.gitignore
 
 ---
 
 ## Run Project
 
-```bash
-python src/main.py
-```
 
----
+python src/main.py
+
+
+
 
 ## Output
 

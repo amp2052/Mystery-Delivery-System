@@ -1,6 +1,7 @@
 import json
 import math
 import os
+import csv
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -121,6 +122,33 @@ def process_file(file_path):
         report,
         key=lambda agent: report[agent]["efficiency"]
     )
+
+
+    top_csv_path = os.path.join(
+        OUTPUT_FOLDER,
+        "top_performer.csv"
+    )
+
+    with open(top_csv_path, "w", newline="") as csvfile:
+
+        writer = csv.writer(csvfile)
+
+        writer.writerow([
+            "Agent ID",
+            "Packages Delivered",
+            "Total Distance",
+            "Efficiency"
+        ])
+
+        stats = report[best_agent]
+
+        writer.writerow([
+            best_agent,
+            stats["packages_delivered"],
+            stats["total_distance"],
+            stats["efficiency"]
+        ])
+        
 
     final_output = {
         "agent_report": report,

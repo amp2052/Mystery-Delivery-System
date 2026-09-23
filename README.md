@@ -1,64 +1,20 @@
 # FastBox Logistics Delivery Simulator
 
-## Overview
+A robust, pure Python logistics simulation system designed to parse variable warehouse datasets, map optimal courier package workloads, simulate real-time sequential routing parameters, and evaluate agent operational performance metrics.
 
-This project simulates package delivery operations for FastBox logistics company.
+## 🚀 How to Run the Project
 
-The system:
-- Reads multiple JSON test case files
-- Assigns packages to nearest delivery agents
-- Calculates travel distances
-- Generates delivery reports
-- Exports reports in JSON and CSV format
+This project uses standard native libraries and requires no extra dependencies.
 
----
+1. Open your terminal at the root of the project folder and run:
+   ```bash
+   python src/main.py
+   ```
+2. Your generated outputs will appear cleanly structured inside the `output/` directory as `report_<name>.json` and `top_performer_<name>.csv`.
 
-## Features
+## 🛠️ Architecture & Core Assumptions
 
-- Automatic processing of all test cases
-- Nearest agent assignment
-- Delivery simulation
-- JSON report generation
-- CSV export
-- Flexible JSON structure handling
-
----
-
-## Assumptions
-
-- Agents start from their initial coordinates
-- Nearest available agent is selected
-- Efficiency = distance / packages
-- Supports both:
-  - warehouse
-  - warehouse_id
-
----
-
-## Project Structure
-
-Python Assignment -2026/
-
-data/
-    TEST_CASES
-output/
-    REPORT
-src/
-    main.py
-README.md
-requirements.txt
-.gitignore
-
----
-
-## Run Project
-
-
-python src/main.py
-
-
-
-
-## Output
-
-Reports are generated inside the output folder.
+* **Structural Normalization Layer**: Dynamic conversion mechanisms natively accept heterogeneous JSON architectures (handles both dictionary maps and structured item lists for warehouses/agents, alongside variable parameters like `warehouse` vs `warehouse_id`).
+* **Continuous State Routing**: Multi-package operations follow a strict First-In, First-Out (FIFO) queue order. The agent's physical coordinate grid tracking shifts seamlessly to each delivery location, making successive distance vectors calculate dynamically rather than resetting back to home bases.
+* **Deterministic Tie-Breaking**: Equidistant vector mappings are handled using alphabetical key sorting rules (`A1` handles tasks before `A2`).
+* **Operational Performance Evaluation**: The efficiency rating reflects the structural distance traveled divided by individual units delivered. The top performer is accurately defined by locating the lowest positive efficiency ratio index across active working courier entities.
